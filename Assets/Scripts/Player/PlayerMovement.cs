@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 
 
-{ public float velocidade = 3.5f;
+{
+    public float velocidade = 3.5f;
 
     private PlayerHealth m_PlayerHealth;
     private Renderer m_Renderer;
@@ -42,7 +43,10 @@ public class PlayerMovement : MonoBehaviour
     // função chamada a cada frame executado no jogo
     void Update()
     {
-        Movement();
+        float h = Input.GetAxis("Horizontal") * velocidade;
+        float v = Input.GetAxis("Vertical") * velocidade;
+        DoMovement(h, v);
+
     }
     //função chamada quando o script é desabilitado
     private void OnDisable()
@@ -50,8 +54,17 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    
+    void DoMovement(float h, float v)
+    {
+        transform.Translate(0, 0, v);
+        transform.Rotate(0, h, 0);
 
-    void Movement()
+    }
+    
+
+
+    /*void Movement()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -85,5 +98,5 @@ public class PlayerMovement : MonoBehaviour
         
         
 
-    }
+    }*/
 }

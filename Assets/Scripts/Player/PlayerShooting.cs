@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         //verifica se a tecla espaço foi pressionada
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             //chamar a função "Shoot"
             Shoot();
